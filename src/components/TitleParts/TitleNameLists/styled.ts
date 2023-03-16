@@ -12,7 +12,7 @@ export const StyledNameListWrap = styled.div`
 
 export const StyledNameList = styled.p`
   color: #0eff0e;
-  font-size: 10px;
+  font-size: 15px;
   z-index: 200;
 
   :hover {

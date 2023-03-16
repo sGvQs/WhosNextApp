@@ -8,4 +8,5 @@ export const StyledText = styled(Html)`
   margin-top: 15vh;
   user-select: none;
   font-weight: bold;
+  font-family: 'Franklin Gothic Medium', Arial, sans-serif;
 `;

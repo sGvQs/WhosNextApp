@@ -1,3 +1,4 @@
+import { Typography } from '../Typography';
 import { StyledButton } from './styled';
 
 type SideButtonProps = {
@@ -6,5 +7,9 @@ type SideButtonProps = {
 };
 
 export const SideButton: React.VFC<SideButtonProps> = ({ text, onClick }) => {
-  return <StyledButton onClick={onClick}>{text}</StyledButton>;
+  return (
+    <StyledButton onClick={onClick}>
+      <Typography text={text} />
+    </StyledButton>
+  );
 };

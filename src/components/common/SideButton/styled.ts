@@ -9,7 +9,6 @@ export const StyledButton = styled.div`
   background: #343a40;
   padding: 5px;
   color: #0eff0e;
-  font-size: 10px;
   font-weight: bold;
   :hover {
     cursor: pointer;

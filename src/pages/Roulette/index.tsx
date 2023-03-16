@@ -1,4 +1,4 @@
-import { StyledCanvasContainer } from './styled';
+import { StyledCanvasContainer, StyledSwitchButton } from './styled';
 import { Canvas } from '@react-three/fiber';
 import React from 'react';
 import { useStoreState } from '../../context';
@@ -9,6 +9,7 @@ import { RouletteMesh } from '../../components/RouletteParts/RouletteMesh';
 import { useResultSentences } from '../../hooks/useResultSentences';
 
 export const Roulette = () => {
+  const [isRank, setIsRank] = React.useState<boolean>(false);
   const [finishedRunnerList, setFinishedRunnerList] = React.useState<
     string[] | undefined
   >();
@@ -21,7 +22,7 @@ export const Roulette = () => {
   React.useEffect(() => {
     if (!finishedRunnerList) return;
     if (nameList?.length !== finishedRunnerList?.length) return;
-    setResultSentence(useResultSentences(finishedRunnerList));
+    setResultSentence(useResultSentences(finishedRunnerList, isRank));
   }, [finishedRunnerList]);
 
   return (
@@ -42,6 +43,15 @@ export const Roulette = () => {
         <TypedText text={'ERROR: THERE IS NO PLAYER'} loop={false} />
       )}
       <SideButton text={'BACK TO TITLE'} onClick={() => navigate('/')} />
+      {!resultSentence && (
+        <StyledSwitchButton
+          onClick={() => {
+            setIsRank(!isRank);
+          }}
+        >
+          {isRank ? 'Rank' : 'Team'}
+        </StyledSwitchButton>
+      )}
     </StyledCanvasContainer>
   );
 };

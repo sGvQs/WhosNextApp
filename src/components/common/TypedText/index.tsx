@@ -16,6 +16,7 @@ const StyledContainer = styled.div`
   left: 50%;
   transform: translate(-50%, 0);
   padding: 10px;
+  font-family: 'Franklin Gothic Medium', Arial, sans-serif;
 `;
 
 type TypedText = {
