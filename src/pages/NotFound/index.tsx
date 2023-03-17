@@ -16,7 +16,7 @@ export const NotFound = () => {
           </Canvas>
         </StyledCanvasContainer>
         <TypedText text={'404: NOT FOUND'} loop={false} />
-        <SideButton text={'BACK TO TITLE'} onClick={() => navigate('/')} />
+        <SideButton text={'◀︎ Back'} onClick={() => navigate('/')} />
       </div>
     </div>
   );

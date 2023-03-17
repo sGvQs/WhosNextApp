@@ -25,6 +25,7 @@ export const Roulette = () => {
     setResultSentence(useResultSentences(finishedRunnerList, isRank));
   }, [finishedRunnerList]);
 
+  console.log(finishedRunnerList);
   return (
     <StyledCanvasContainer>
       <Canvas camera={{ position: [0, 0, 15] }}>
@@ -42,7 +43,7 @@ export const Roulette = () => {
       ) : (
         <TypedText text={'ERROR: THERE IS NO PLAYER'} loop={false} />
       )}
-      <SideButton text={'BACK TO TITLE'} onClick={() => navigate('/')} />
+      <SideButton text={'◀︎ Back'} onClick={() => navigate('/')} />
       {!resultSentence && (
         <StyledSwitchButton
           onClick={() => {

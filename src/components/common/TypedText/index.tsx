@@ -31,7 +31,7 @@ export const TypedText: React.VFC<TypedText> = ({ text, loop }) => {
     if (typeTarget.current) {
       const typed = new Typed(typeTarget.current, {
         strings: [text],
-        typeSpeed: 100,
+        typeSpeed: 20,
         backSpeed: 3,
         loop: loop,
       });

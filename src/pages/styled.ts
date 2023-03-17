@@ -17,6 +17,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background: #f0f0f0;
+    overflow: hidden;
   }
 
   #canvas-container {
