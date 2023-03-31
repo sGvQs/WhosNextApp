@@ -7,40 +7,38 @@ export const TitleTextArea: React.VFC = () => {
   const [currentValue, setCurrentValue] = React.useState<string>();
 
   const onKeyPress = () => {
-    if (!currentValue) return;
+    setNameList(nameListSetter());
+    setCurrentValue('');
+  };
+
+  const nameListSetter = () => {
     if (!nameList) {
-      setNameList([currentValue.replace(/\n/g, '')]);
-      setCurrentValue('');
+      switch (currentValue) {
+        case 'kermit-dev':
+          return kermit;
+        case 'rosita-dev':
+          return rosita;
+        case undefined:
+          return;
+        default:
+          return [currentValue.replace(/\n/g, '')];
+      }
     } else {
-      setNameList([...nameList, currentValue.replace(/\n/g, '')]);
-      setCurrentValue('');
+      switch (currentValue) {
+        case 'kermit-dev':
+          return [...nameList, ...kermit];
+        case 'rosita-dev':
+          return [...nameList, ...rosita];
+        case undefined:
+          return;
+        default:
+          return [...nameList, currentValue.replace(/\n/g, '')];
+      }
     }
   };
 
   const kermit = ['goto', 'saito', 'nakatsuka', 'nishihara', 'hirai'];
   const rosita = ['sato', 'watanabe', 'kuwata', 'goshima', 'kaino'];
-
-  React.useEffect(() => {
-    if (currentValue !== 'kermit-dev') return;
-    if (!nameList) {
-      setNameList(kermit);
-      setCurrentValue('');
-    } else {
-      setNameList([...nameList, ...kermit]);
-      setCurrentValue('');
-    }
-  }, [currentValue]);
-
-  React.useEffect(() => {
-    if (currentValue !== 'rosita-dev') return;
-    if (!nameList) {
-      setNameList(rosita);
-      setCurrentValue('');
-    } else {
-      setNameList([...nameList, ...rosita]);
-      setCurrentValue('');
-    }
-  }, [currentValue]);
 
   return (
     <StyledTextarea
